@@ -6,8 +6,8 @@
 #define BUFFER_SIZE 1024
 #define SERVER_ADDR "localhost:8088"
 #define EVP_ENCRYPT_MODE 1
-#define KEY "abcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefgh"
-#define IV "abcdefghabcdefgh"
+#define KEY "297B9DF04F9AF6B7438A541DE6F3F23751EFC3EBD8DCDE8F46B5062DE389E760"
+#define IV "0F2B798406508FB10352B8256222C51B"
 
 int main(){
     BIO *cbio, *cipherBio, *b;
@@ -46,12 +46,12 @@ int main(){
         fgets(plaintext, BUFFER_SIZE, stdin);
         len = BIO_write(cipherBio, plaintext, strlen(plaintext)-1);
         printf("length of plaintext:%d\n", len);
+        BIO_flush(cipherBio);
         len = BIO_read(cipherBio, ciphertext, BUFFER_SIZE);
         printf("length of ciphertext:%d\n", len);
         printf("ciphertext: %s[endofcipertext]\n", ciphertext);
 
         len = BIO_write(cbio, ciphertext, BUFFER_SIZE);
-        BIO_flush(cbio);
         printf("===============================\n");
     }
 

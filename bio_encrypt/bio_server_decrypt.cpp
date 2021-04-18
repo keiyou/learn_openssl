@@ -7,8 +7,8 @@
 #define BUFFER_SIZE 1024
 #define SERVER_ADDR "localhost:8088"
 #define EVP_DECRYPT_MODE 0
-#define KEY "abcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefghabcdefgh"
-#define IV "abcdefghabcdefgh"
+#define KEY "297B9DF04F9AF6B7438A541DE6F3F23751EFC3EBD8DCDE8F46B5062DE389E760"
+#define IV "0F2B798406508FB10352B8256222C51B"
 
 int main(){
     BIO *acceptBio, *cipherBio, *connection, *b;
@@ -17,8 +17,8 @@ int main(){
 
     unsigned char key[EVP_MAX_KEY_LENGTH] = "";
     unsigned char iv[EVP_MAX_IV_LENGTH] = "";
-    memcpy((void *)key, KEY, EVP_MAX_KEY_LENGTH);
-    memcpy((void *)iv, IV, EVP_MAX_IV_LENGTH);
+    memcpy(key, KEY, EVP_MAX_KEY_LENGTH);
+    memcpy(iv, IV, EVP_MAX_IV_LENGTH);
     // memset((void *)key, 'k', EVP_MAX_KEY_LENGTH);
     // memset((void *)iv, 'i', EVP_MAX_IV_LENGTH);
 
