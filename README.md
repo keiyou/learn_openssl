@@ -17,8 +17,23 @@ USTC LoCE 学习任务，使用openssl构建简单的服务器/客户端通讯�
 使用openssl/bio实现的ssl服务器及客户端，以及使用socket实现的ssl服务器
 
 ## __Install__
+生成对应的可运行文件
+
+    make socket
+    make socket_encrypt
+    make bio
+    make bio_encrypt
+    make ssl
+
+清除
+
+    make clean
 
 ## __Usage__
+运行对应的可运行文件
+
+    ./server   
+    ./client
 
 ## __TODO__
 
