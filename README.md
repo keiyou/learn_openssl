@@ -3,7 +3,7 @@
 USTC LoCE 学习任务，使用openssl构建简单的服务器/客户端通讯，并实现从普通通讯到加密通讯的变化。
 
 该学习项目使用了socket和openssl/bio分别实现了服务器/客户端模型，并尝试使用AES 256 CBC对传输数据进行加密，此外还额外实现了SSL 服务器/客户端。
-___
+
 ## __Structure__
 ### *socket*
 使用c的socket实现的服务器及客户端
@@ -15,11 +15,11 @@ ___
 在openssl/bio的基础上使用cipher bio对发送数据进行aes-256-cbc加密
 ### *ssl*
 使用openssl/bio实现的ssl服务器及客户端，以及使用socket实现的ssl服务器
-___
+
 ## __Install__
-___
+
 ## __Usage__
-___
+
 ## __TODO__
 
 ### *代码*
