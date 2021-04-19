@@ -42,7 +42,7 @@ int main(){
         }
         b = BIO_new_mem_buf(cipherbuf, -1);
         cipherBio = BIO_push(cipherBio, b);
-        
+
         fgets(plaintext, BUFFER_SIZE, stdin);
         len = BIO_write(cipherBio, plaintext, strlen(plaintext)-1);
         printf("length of plaintext:%d\n", len);

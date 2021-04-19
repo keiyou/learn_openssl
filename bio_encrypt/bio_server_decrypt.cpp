@@ -3,7 +3,6 @@
 #include <openssl/evp.h>
 #include <string.h>
 
-
 #define BUFFER_SIZE 1024
 #define SERVER_ADDR "localhost:8088"
 #define EVP_DECRYPT_MODE 0
@@ -29,13 +28,11 @@ int main(){
         printf("failed to accept new connection");
         exit(1);
     }
-   
+
     // cipherBio = BIO_new(BIO_f_cipher());
     // BIO_set_cipher(cipherBio, EVP_aes_256_ecb(), userkey, iv, 0);
     // BIO_set_accept_bios(acceptBio, cipherBio);
     // acceptBio = BIO_push(cipherBio, acceptBio);
-
-
 
     while(true){
         if(BIO_do_accept(acceptBio) <= 0){
@@ -45,7 +42,7 @@ int main(){
 
         connection = BIO_pop(acceptBio);
 
-        printf("cipher status:%ld\n", BIO_get_cipher_status(connection)); 
+        printf("cipher status:%ld\n", BIO_get_cipher_status(connection));
         printf("connection established\n");
 
         while(true){
@@ -61,12 +58,12 @@ int main(){
             cipherBio = BIO_push(cipherBio, b);
 
             len = BIO_read(connection, ciphertext, BUFFER_SIZE);
-            if(len <= 0){
+            if (len <= 0){
                 break;
             }
             printf("length of ciphertext: %ld\n", strlen(ciphertext));
             printf("ciphertext: %s[endofciphertext]\n", ciphertext);
-            
+
             len = BIO_write(cipherBio, ciphertext, strlen(ciphertext));
             len = BIO_read(cipherBio, plaintext, BUFFER_SIZE);
             if(BIO_get_cipher_status(cipherBio) == 0){
